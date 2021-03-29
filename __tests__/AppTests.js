@@ -7,7 +7,11 @@ let app;
 beforeAll(() => {
   app = new Application({
     path: electronPath,
-
+    chromeDriverArgs: [
+      '--no-sandbox',
+      '--whitelisted-ips=',
+      '--disable-dev-shm-usage'
+    ],
     args: [path.join(__dirname, "..")]
   });
   return app.start();

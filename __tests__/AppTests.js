@@ -16,7 +16,6 @@ beforeAll(() => {
 
 afterAll(function () {
   if (app && app.isRunning()) {
-    // console.log(app)
     return app.stop();
   }
 });
@@ -29,6 +28,5 @@ test("Displays App window", async function () {
 
 test("should launch app", async () => {
   const devTitle = await app.client.getTitle();
-  console.log(app)
   expect(devTitle).toBe('DevTools'); 
 });

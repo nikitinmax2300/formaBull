@@ -30,3 +30,5 @@ test("should launch app", async () => {
   const devTitle = await app.client.getTitle();
   expect(devTitle).toBe('DevTools'); 
 });
+
+console.log(app)

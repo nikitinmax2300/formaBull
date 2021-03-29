@@ -8,6 +8,7 @@ beforeAll(() => {
   app = new Application({
     path: electronPath,
     chromeDriverArgs: [
+      'headless',
       '--no-sandbox',
       '--whitelisted-ips=',
       '--disable-dev-shm-usage'

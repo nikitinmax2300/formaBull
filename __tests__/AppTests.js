@@ -1,6 +1,8 @@
-const Application = require("spectron").Application;
-const electronPath = require("electron");
-const path = require("path");
+/* eslint-disable consistent-return */
+/* eslint-disable no-undef */
+const Application = require('spectron').Application;
+const electronPath = require('electron');
+const path = require('path');
 
 let app;
 
@@ -11,27 +13,26 @@ beforeAll(() => {
       'headless',
       '--no-sandbox',
       '--whitelisted-ips=',
-      '--disable-dev-shm-usage'
+      '--disable-dev-shm-usage',
     ],
-    args: [path.join(__dirname, "..")]
+    args: [path.join(__dirname, '..')],
   });
   return app.start();
 }, 15000);
 
-
-afterAll(function () {
+afterAll(() => {
   if (app && app.isRunning()) {
     return app.stop();
   }
 });
 
-test("Displays App window", async function () {
-  let windowCount = await app.client.getWindowCount();
+test('Displays App window', async () => {
+  const windowCount = await app.client.getWindowCount();
 
   expect(windowCount).toBe(2);
 });
 
-test("should launch app", async () => {
+test('should launch app', async () => {
   const devTitle = await app.client.getTitle();
-  expect(devTitle).toBe('DevTools'); 
+  expect(devTitle).toBe('DevTools');
 });

@@ -11,7 +11,7 @@ beforeAll(() => {
     args: [path.join(__dirname, "..")]
   });
   return app.start();
-}, 50000);
+}, 15000);
 
 
 afterAll(function () {
@@ -30,5 +30,3 @@ test("should launch app", async () => {
   const devTitle = await app.client.getTitle();
   expect(devTitle).toBe('DevTools'); 
 });
-
-console.log(app)
